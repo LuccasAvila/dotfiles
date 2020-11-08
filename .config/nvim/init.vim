@@ -4,7 +4,6 @@ let g:mapleader=','
 " Remove errors bells
 set noerrorbells
 set visualbell
-
 " Active the autoindent
 set autoindent
 
@@ -69,18 +68,25 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'junegunn/fzf.vim'
+
 Plug 'tpope/vim-commentary'
 
 Plug 'ap/vim-css-color'
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 call plug#end()
 
-" ======= CoC config =======  "
+" ======= fzf config ======= "
+" Use <C-p> to open Git Files Search
+nnoremap <C-p> :GFiles<CR>
+
+" ======= CoC config ======= "
 " Use tab for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -100,7 +106,6 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -134,7 +139,6 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " Auto start with NERDTree opened with the workspace
 " who is selected in command
 autocmd VimEnter */workspace/* NERDTree| wincmd p
-let g:NERDTreeHijackNetrw = 1
 au VimEnter NERD_tree_1 enew | execute 'NERDTree '.argv()[0]
 " Toggle the NERDTree panel with <C-b>
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
@@ -158,6 +162,10 @@ let g:lightline = {
       \ },
       \ }
 
+" ======= VimGutter config ======= "
+" Always show the sign column
+set signcolumn=yes
+
 " ======= Markdown preview ======= "
 " Do not close the preview tab when switching to other buffers
 let g:mkdp_auto_close = 0
@@ -167,7 +175,7 @@ nnoremap <M-m> <Plug>:MarkdownPreview
 
 " ======= Appearence ======= "
 " Set the material theme to the darker variant
-let g:material_theme_style = 'darker'
+let g:material_theme_style = 'darker-community'
 " Set the colorscheme to material
 colorscheme material
 
