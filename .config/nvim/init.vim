@@ -67,6 +67,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'posva/vim-vue'
 
 Plug 'junegunn/fzf.vim'
 
@@ -84,7 +85,7 @@ call plug#end()
 
 " ======= fzf config ======= "
 " Use <C-p> to open Git Files Search
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 
 " ======= CoC config ======= "
 " Use tab for trigger completion with characters ahead and navigate
